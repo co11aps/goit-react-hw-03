@@ -1,28 +1,26 @@
-import { useState } from "react";
+import { useState, useId, useEffect } from "react";
+import initialContactsList from "../contacts.json";
 // import { Formik, Form, Field } from "formik";
 // import * as Yup from "yup";
+import { nanoid } from "nanoid";
+import ContactList from "../ContactList/ContactList";
+import SearchBox from "../SearchBox/SearchBox";
 
 const App = () => {
-  const [hasAccepted, setHasAccepted] = useState(false);
+  const [contacts, setContacts] = useState(initialContactsList);
+  const [filter, setFilter] = useState("");
 
-  const handleChange = (evt) => {
-    setHasAccepted(evt.target.checked);
-  };
+  console.log(filter);
+  const filteredContacts = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
+  );
 
   return (
     <div>
-      <label>
-        <input
-          type="checkbox"
-          name="terms"
-          checked={hasAccepted}
-          onChange={handleChange}
-        />
-        I accept terms and conditions
-      </label>
-      <button type="button" disabled={!hasAccepted}>
-        Proceed
-      </button>
+      <h1>Phonebook</h1>
+      {/* <ContactForm /> */}
+      <SearchBox value={filter} onFilter={setFilter} />
+      <ContactList contacts={filteredContacts} />
     </div>
   );
 };
