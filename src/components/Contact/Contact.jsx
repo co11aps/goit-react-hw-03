@@ -1,11 +1,22 @@
-const Contact = ({ contact: { id, name, number } }) => {
+import { BsFillPersonFill, BsFillTelephoneFill } from "react-icons/bs";
+import css from "./Contact.module.css";
+
+const Contact = ({ contact: { id, name, number }, onDelete }) => {
   return (
     <>
       <div>
-        <p>{name}</p>
-        <p>{number}</p>
+        <p className={css.text}>
+          <BsFillPersonFill size={14} className={css.icon} />
+          {name}
+        </p>
+        <p className={css.text}>
+          <BsFillTelephoneFill size={14} className={css.icon} />
+          {number}
+        </p>
       </div>
-      <button>Delite</button>
+      <button className={css.btn} onClick={() => onDelete(id)}>
+        Delite
+      </button>
     </>
   );
 };

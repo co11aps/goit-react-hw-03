@@ -1,0 +1,14 @@
+.icon {
+    margin-right: 8px;
+}
+
+.text {
+    margin-bottom: 8px;
+}
+
+.btn {
+    /* margin-left: 48px; */
+    height: 28px;
+    width: 84px;
+    font-size: 16px;
+}

@@ -1,4 +1,4 @@
-const SearchBox = ({ value, onFilter }) => {
+const SearchBox = ({ value, onFilter, onReset }) => {
   return (
     <>
       <label htmlFor="searchBox">Find contacts by name</label>
@@ -7,7 +7,9 @@ const SearchBox = ({ value, onFilter }) => {
         name="searchBox"
         value={value}
         onChange={(evt) => onFilter(evt.target.value)}
+        ref={focus}
       />
+      <button onClick={onReset}>Reset</button>
     </>
   );
 };
