@@ -1,16 +1,22 @@
+import css from "./SearchBox.module.css";
+
 const SearchBox = ({ value, onFilter, onReset }) => {
   return (
-    <>
-      <label htmlFor="searchBox">Find contacts by name</label>
+    <div className={css.container}>
+      <label className={css.label} htmlFor="searchBox">
+        Find contacts by name
+      </label>
       <input
         type="text"
         name="searchBox"
         value={value}
         onChange={(evt) => onFilter(evt.target.value)}
-        ref={focus}
+        className={css.input}
       />
-      <button onClick={onReset}>Reset</button>
-    </>
+      <button className={css.btn} onClick={onReset}>
+        Reset
+      </button>
+    </div>
   );
 };
 

@@ -45,7 +45,9 @@ const ContactForm = ({ addContact }) => {
       >
         <Form className={css.form}>
           <div className={css["field-container"]}>
-            <label htmlFor={nameFieldId}>Name</label>
+            <label className={css.label} htmlFor={nameFieldId}>
+              Name
+            </label>
             <Field
               name="name"
               type="text"
@@ -53,10 +55,12 @@ const ContactForm = ({ addContact }) => {
               placeholder="Name..."
               className={css.field}
             />
-            <ErrorMessage className={css.error} name="name" as="span" />
+            <ErrorMessage className={css.error} name="name" component="span" />
           </div>
           <div className={css["field-container"]}>
-            <label htmlFor={phoneNumberFieldId}>Number</label>
+            <label className={css.label} htmlFor={phoneNumberFieldId}>
+              Number
+            </label>
             <Field
               name="phoneNumber"
               type="tel"
@@ -64,7 +68,11 @@ const ContactForm = ({ addContact }) => {
               id={phoneNumberFieldId}
               className={css.field}
             />
-            <ErrorMessage className={css.error} name="phoneNumber" as="span" />
+            <ErrorMessage
+              className={css.error}
+              name="phoneNumber"
+              component="span"
+            />
           </div>
           <button className={css.btn} type="submit">
             Submit
